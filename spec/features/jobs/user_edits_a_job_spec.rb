@@ -11,7 +11,7 @@ describe "User edits a job" do
                                city: "Denver",
                                level_of_interest: "4",
                                category_id: category.id)
-    visit edit_company_job_path(job)
+    visit edit_company_job_path(company, job)
 
     select category_2.title, from: 'category'
     select company_2.name, from: 'company'
