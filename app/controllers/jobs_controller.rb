@@ -25,7 +25,10 @@ class JobsController < ApplicationController
   end
 
   def edit
-    # implement on your own!
+    @job = Job.find(params[:id])
+    @company = Company.find(params[:company_id])
+    @categories = Category.all
+    @companies = Company.all
   end
 
   def update

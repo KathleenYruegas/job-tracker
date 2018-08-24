@@ -13,8 +13,8 @@ describe "User edits a job" do
                                category_id: category.id)
     visit edit_company_job_path(company, job)
 
-    select category_2.title, from: 'category'
-    select company_2.name, from: 'company'
+    select category_2.title, from: 'category_dropdown'
+    select company_2.name, from: 'company_dropdown'
     fill_in "job[title]", with: "New title!"
     fill_in "job[description]", with: "New desc"
     fill_in "job[level_of_interest]", with: 3
@@ -22,7 +22,7 @@ describe "User edits a job" do
 
     click_button "Update"
 
-    expect(current_path).to eq(company_job_path(job))
+    expect(current_path).to eq(company_job_path(company, job))
     expect(page).to have_content("New title!")
     expect(page).to have_content("New desc!")
     expect(page).to have_content("3")

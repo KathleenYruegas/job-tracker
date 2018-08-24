@@ -1,0 +1,17 @@
+<h1>Edit Job</h1>
+
+<%= render partial: 'form' %>
+<select name='job[category_id]' id='category_dropdown'>
+      <% @categories.each do |category| %>
+  <option>
+    <%= category.title %>
+  </option>
+  <% end %>
+</select>
+<select name='job[company_id]' id='company_dropdown'>
+      <% @companies.each do |company| %>
+  <option>
+    <%= company.name %>
+  </option>
+  <% end %>
+</select>
