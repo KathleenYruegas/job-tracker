@@ -32,7 +32,6 @@ class JobsController < ApplicationController
   end
 
   def update
-    require 'pry'; binding.pry
     @job = Job.find(params[:id])
     @job.update(job_params)
     @company = Company.find(@job.company_id)

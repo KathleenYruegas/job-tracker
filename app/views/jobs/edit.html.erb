@@ -1,13 +1,8 @@
 <h1>Edit Job</h1>
-<%= form_for [@company, @job] do |f| %>
-  f.collection_select :id, @companies
+<!-- <%= form_for [@company, @job], :html => { :id => 'company_dropdown' } do |f| %>
+  <%= f.collection_select(:company_id, @companies, :id, :name ) %>
 <% end %>
-
+<%= form_for [@company, @job], :html => { :id => 'category_dropdown' } do |f| %>
+  <%= f.collection_select(:category_id, @categories, :id, :title ) %>
+<% end %> -->
 <%= render partial: 'form' %>
-<select name='job[company_id]' id='company_dropdown'>
-      <% @companies.each do |company| %>
-  <option>
-    <%= company.name %>
-  </option>
-  <% end %>
-</select>
