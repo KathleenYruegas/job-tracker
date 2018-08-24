@@ -1,2 +1,3 @@
 class Category < ApplicationRecord
-end 
+  validates_presence_of :title
+end
