@@ -16,7 +16,7 @@ describe "User edits a job" do
     select category_2.title, from: 'category_dropdown'
     select company_2.name, from: 'company_dropdown'
     fill_in "job[title]", with: "New title!"
-    fill_in "job[description]", with: "New desc"
+    fill_in "job[description]", with: "New desc!"
     fill_in "job[level_of_interest]", with: 3
     fill_in "job[city]", with: "Chicago"
 

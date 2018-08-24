@@ -32,7 +32,12 @@ class JobsController < ApplicationController
   end
 
   def update
-    # implement on your own!
+    require 'pry'; binding.pry
+    @job = Job.find(params[:id])
+    @job.update(job_params)
+    @company = Company.find(@job.company_id)
+    flash[:success] = "You updated #{@job.title} at #{@company.name}"
+    redirect_to company_job_path(@company, @job)
   end
 
   def destroy
@@ -42,6 +47,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :company_id, :category_id)
   end
 end
