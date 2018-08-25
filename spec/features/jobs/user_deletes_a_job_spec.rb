@@ -9,7 +9,7 @@ describe "User deletes a job" do
                                city: "Denver",
                                level_of_interest: "4",
                                category_id: category.id)
-    visit company_jobs_path(company)
+    visit jobs_path
 
     within(".job_#{job.id}") do
       click_link "Delete"
