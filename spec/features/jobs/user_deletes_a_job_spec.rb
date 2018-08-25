@@ -10,9 +10,8 @@ describe "User deletes a job" do
                                level_of_interest: "4",
                                category_id: category.id)
     visit company_jobs_path(company)
-    save_and_open_page
 
-    within(".company_job_#{job.id}") do
+    within(".job_#{job.id}") do
       click_link "Delete"
     end
 
