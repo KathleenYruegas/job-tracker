@@ -1,0 +1,9 @@
+<h1>Job Categories</h1>
+
+
+<div>
+  <% @categories.each do |category| %>
+    <p><%= category.title %></p>
+    <p><%= category.jobs.count %> Jobs</p>
+  <% end %>
+</div>
