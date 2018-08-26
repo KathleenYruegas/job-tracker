@@ -5,8 +5,8 @@ describe 'User can add a job comment' do
     describe 'fills in the comment box and clicks submit' do
       it 'should create a job comment and show it on that jobs page' do
         company = Company.create!(name: "Turing")
-        category = Category.create!(title: "Category Name")
-        job = Job.create!(title: "Title", company: company, level_of_interest: 5, description: "Wahoo", city: "Denver", category: category)
+        category = Category.create!(title:"Category")
+        job = Job.create!(title: "Title", company: company, category: category, level_of_interest: 5, description: "Wahoo", city: "Denver")
 
         visit job_path(job)
         within(".comment_box") do
