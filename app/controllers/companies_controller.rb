@@ -19,7 +19,8 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @company_contact = CompanyContact.new
+    @company_contact = @company.company_contacts.new
+    @contacts = CompanyContact.all
   end
 
   def edit
@@ -51,4 +52,5 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:name, :city)
   end
+
 end

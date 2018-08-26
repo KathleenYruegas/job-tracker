@@ -1,8 +1,5 @@
-All Jobs for <strong><%= @company.name %></strong>
-
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
-<% end %>
+<strong><%= @company.name %></strong>
+<!-- Wrap above in a div and add an edit and delete link -->
 
 <div class="new_contact_form">
   <h2>Add New Contact</h2>
@@ -13,6 +10,19 @@ All Jobs for <strong><%= @company.name %></strong>
     <%= f.text_field :position %>
     <%= f.label :email %>
     <%= f.text_field :email %>
-    <%= f.submit %>
+    <%= f.hidden_field :company_id, :value => @company.id %>
+    <%= f.submit "Save" %>
   <% end %>
+</div>
+
+<div class="company_contacts">
+  <h2>Existing Contacts</h2>
+  <ul>
+    <% @contacts.each do |contact| %>
+    <li><%= contact.name %></li>
+    <li><%= contact.position %></li>
+    <li><%= contact.email %></li>
+    <% end %>
+  </ul>
+
 </div>
