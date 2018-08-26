@@ -8,7 +8,7 @@ describe "A user can create a new category" do
     fill_in("category[title]", with: "Testing")
     click_button("Create")
 
-    expect(current_path).to eq(category_path(Company.last.id))
+    expect(current_path).to eq(category_path(Category.last.id))
     expect(page).to have_content("Testing")
   end
 end
