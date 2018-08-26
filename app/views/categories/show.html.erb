@@ -10,7 +10,7 @@
     <p><%= job.city %></p>
   <label>Interest</label>
     <p><%= job.level_of_interest %></p>
-  <%= link_to "Edit", edit_job_path(job) %>
+  <%= link_to "Edit", edit_job_path(:job => { :company_id => job.company_id}) %>
   <%= link_to "Delete", job_path(job), method: "delete" %>
 </div>
 <% end %>
