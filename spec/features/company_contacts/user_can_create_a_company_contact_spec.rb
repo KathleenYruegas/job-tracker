@@ -12,7 +12,6 @@ describe "User creates company contact" do
         fill_in "company_contact[email]", with: "BillNyeTheScienceGuy@science.org"
         click_button "Save"
       end
-      save_and_open_page
       expect(page).to have_content("Bill Nye")
       expect(page).to have_content("Science Guy")
       expect(page).to have_content("BillNyeTheScienceGuy@science.org")
