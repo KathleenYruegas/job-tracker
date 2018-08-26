@@ -45,4 +45,25 @@ describe Job do
       expect(job).to respond_to(:job_comments)
     end
   end
+  describe "methods" do
+    it "can return an array of unique cities" do
+      company = Company.new(name: "Turing")
+      category = Category.new(title: "Feature Testing")
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Boulder", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Boulder", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Chicago", company: company, category: category)
+      expect(Job.get_cities).to eq(["Chicago", "Boulder", "Denver"])
+    end
+    it "can return a count of each city" do
+      company = Company.new(name: "Turing")
+      category = Category.new(title: "Feature Testing")
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 40, city: "Chicago", company: company, category: category)
+      expect(Job.count_city("Denver")).to eq 2
+      expect(Job.count_city("Chicago")).to eq 1
+    end
+  end
 end
