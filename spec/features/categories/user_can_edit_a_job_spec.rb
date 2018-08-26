@@ -11,7 +11,7 @@ describe "User can edit a category" do
       click_on("Edit")
     end
 
-    expect(current_path).to eq(category_path(category_1))
+    expect(current_path).to eq(edit_category_path(category_1))
     fill_in("category[title]", with: "Junior Dev")
     click_on("Update")
 

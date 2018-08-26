@@ -29,8 +29,9 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def updated
+  def update
     @category = Category.find(params[:id])
+    @category.update(category_params)
     if @category.save
       flash[:success] = "Your category was updated!"
       redirect_to category_path(@category)
