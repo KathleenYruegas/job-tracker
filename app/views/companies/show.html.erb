@@ -3,3 +3,16 @@ All Jobs for <strong><%= @company.name %></strong>
 <% @company.jobs.each do |job| %>
   <ul><%= job.title %></ul>
 <% end %>
+
+<div class="new_contact_form">
+  <h2>Add New Contact</h2>
+    <%= form_for @company_contact do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :position %>
+    <%= f.text_field :position %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.submit %>
+  <% end %>
+</div>

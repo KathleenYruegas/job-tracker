@@ -8,7 +8,6 @@ describe 'User sees all job comments' do
     comment_2 = job.job_comments.create!(content: "Penelope Cruz")
 
     visit job_path(job)
-    save_and_open_page
     expect(page).to have_content(comment.content)
     expect(page).to have_content(comment.updated_at)
     expect(page).to have_content(comment_2.content)
