@@ -36,4 +36,40 @@ describe "User visits category show page" do
 
     expect(current_path).to eq(edit_job_path(job_1))
   end
+
+  it "should link to all other pages" do
+    category = Category.create!(title: "Testing")
+    company_1 = Company.create!(name: "Google")
+    company_2 = Company.create!(name: "Turing")
+    job_1 = company_1.jobs.create!(title: "Software Developer",
+                                  description: "Do Stuff",
+                                  level_of_interest: 3,
+                                  city: "Denver",
+                                  category_id: category.id)
+    job_2 = company_2.jobs.create!(title: "Testing Developer",
+                                  description: "Test Stuff",
+                                  level_of_interest: 4,
+                                  city: "San Fran",
+                                  category_id: category.id)
+
+    visit category_path(category)
+    click_link("Add New Job")
+    expect(current_path).to eq(new_job_path)
+
+    visit category_path(category)
+    click_link(job_1.title)
+    expect(current_path).to eq(job_path(job_1))
+
+    visit category_path(category)
+    click_link(company_1.name)
+    expect(current_path).to eq(company_path(company_1))
+
+    # visit category_path(category)
+    # click_link(job_2.city)
+    # expect(current_path).to eq(???
+    #
+    # visit category_path(category)
+    # click_link("Interest")
+    # expect(current_path).to eq(???
+  end
 end

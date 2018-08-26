@@ -1,11 +1,13 @@
 <h1 class='title'><%= @category.title %> Jobs</h1>
 
+<p><%= link_to "Add New Job", new_job_path %>
+
 <% @category.jobs.each do |job| %>
 <div id='job-<%= job.id %>'>
   <label>Title</label>
-    <p><%= job.title %></p>
+    <p><%= link_to job.title, job_path(job) %></p>
   <label>Company</label>
-    <p><%= job.company.name %></p>
+    <p><%= link_to job.company.name, company_path(job.company_id) %></p>
   <label>City</label>
     <p><%= job.city %></p>
   <label>Interest</label>
