@@ -12,6 +12,15 @@ City: <%= @job.city %>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
+<div class="comment_box">
+  <%= form_for @job_comment do |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :job_id, :value => @job.id %>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>
+
 <div>
   <ul>
     <% @comments.each do |comment| %>
