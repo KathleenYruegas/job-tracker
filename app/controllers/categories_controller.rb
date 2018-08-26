@@ -3,17 +3,22 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def show
-    @category = Category.find(params[:id])
-  end
-
   def new
     @category = Category.new
   end
 
   def create
-    @category = Category.create(category_params)
-    redirect_to category_path(@category)
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to category_path(@category)
+    else
+      flash[:error] = "Sorry, this category name already exists!"
+      redirect_to new_category_path
+    end
+  end
+
+  def show
+    @category = Category.find(params[:id])
   end
 
   private
