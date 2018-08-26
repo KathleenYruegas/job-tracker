@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-describe JobComment, type: :model do
-  describe "validations" do
-    context "invalid attributes" do
-      it "is invalid without content" do
-        comment = JobComment.new()
-        expect(comment).to be_invalid
-      end
-    end
-  end
+RSpec.describe JobComment, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
