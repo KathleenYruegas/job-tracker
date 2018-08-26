@@ -11,3 +11,14 @@ City: <%= @job.city %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+<div>
+  <ul>
+    <% @comments.each do |comment| %>
+    <li>
+      <%= comment.updated_at %>
+      <%= comment.content %>
+    </li>
+    <% end %>
+  </ul>
+</div>

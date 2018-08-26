@@ -5,7 +5,7 @@ describe JobComment, type: :model do
     context 'valid attributes' do
       it "is valid with content" do
         company = Company.create!(name: "Turing")
-        job = Job.create!(title: "Title", company: company, level_of_interest: 80, description: "Wahoo", city: "Denver")
+        job = Job.create!(title: "Title", company: company, level_of_interest: 5, description: "Wahoo", city: "Denver")
         comment = job.job_comments.create!(content: "This is an example")
         expect(comment).to be_valid
       end
