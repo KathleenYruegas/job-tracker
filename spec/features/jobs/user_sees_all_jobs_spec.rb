@@ -4,9 +4,11 @@ describe "User sees all jobs" do
   scenario 'user can see all jobs' do
     company = Company.create!(name: "ESPN")
     company_2 = Company.create!(name: "Boeing")
-    company.jobs.create!(title: "Developer", level_of_interest: 4, city: "Denver")
-    company.jobs.create!(title: "QA Analyst", level_of_interest: 3, city: "New York City")
-    company_2.jobs.create!(title: "Aeronautical Engineer", level_of_interest: 3, city: "Salt Lake City")
+    category_1 = Category.create!(title: "Smart Stuff")
+    category_2 = Category.create!(title: "Engineering")
+    company.jobs.create!(title: "Developer", level_of_interest: 4, city: "Denver", category_id: category_1.id)
+    company.jobs.create!(title: "QA Analyst", level_of_interest: 3, city: "New York City", category_id: category_1.id)
+    company_2.jobs.create!(title: "Aeronautical Engineer", level_of_interest: 3, city: "Salt Lake City", category_id: category_2.id)
 
     visit jobs_path
 
@@ -22,8 +24,9 @@ describe "User sees all jobs" do
   end
   scenario "a user sees all the jobs for a specific company" do
     company = Company.create!(name: "ESPN")
-    company.jobs.create!(title: "Developer", level_of_interest: 3, city: "Denver")
-    company.jobs.create!(title: "QA Analyst", level_of_interest: 4, city: "New York City")
+    category_1 = Category.create!(title: "Smart Stuff")
+    company.jobs.create!(title: "Developer", level_of_interest: 3, city: "Denver", category_id: category_1.id)
+    company.jobs.create!(title: "QA Analyst", level_of_interest: 4, city: "New York City", category_id: category_1.id)
 
     visit company_jobs_path(company)
 

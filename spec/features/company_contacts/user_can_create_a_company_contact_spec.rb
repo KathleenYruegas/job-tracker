@@ -4,7 +4,8 @@ describe "User creates company contact" do
   context "on a company show page" do
     it "user fills out the form to create a company contact" do
       company = Company.create!(name: "Turing")
-      company.jobs.create!(title: "Web Developer", company: company, level_of_interest: 5, description: "Wahoo", city: "Denver")
+      category = Category.create!(title: "Testing")
+      company.jobs.create!(title: "Web Developer", company: company, level_of_interest: 5, description: "Wahoo", city: "Denver", category: category)
       visit company_path(company)
       within ".new_contact_form" do
         fill_in "company_contact[name]", with: "Bill Nye"
