@@ -21,6 +21,26 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+    if @category.save
+      flash[:success] = "Your category was updated!"
+      redirect_to category_path(@category)
+    else
+      flash[:error] = "Sorry, this category name already exists!"
+      redirect_to edit_category_path(@category)
+    end
+  end
+
   private
 
   def category_params
