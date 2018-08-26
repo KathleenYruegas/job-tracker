@@ -30,6 +30,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @comments = JobComment.where(job_id: @job.id).order(updated_at: :desc)
   end
 
   def edit
