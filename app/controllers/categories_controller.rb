@@ -41,6 +41,17 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    category = Category.find(params[:id])
+    title = category.title
+    if category.delete
+      flash[:success] = "Category \"#{title}\" has been deleted."
+      redirect_to categories_path
+    else
+      flash[:error] = "\"#{title}\" can't be deleted while it contains jobs."
+    end
+  end
+
   private
 
   def category_params
