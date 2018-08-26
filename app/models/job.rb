@@ -5,6 +5,6 @@ class Job < ApplicationRecord
   belongs_to :category
 
   def self.sort_by_location
-    Job.order(:city)
+    order(:city)
   end
 end

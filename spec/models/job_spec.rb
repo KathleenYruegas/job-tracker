@@ -67,10 +67,15 @@ describe Job do
                                     level_of_interest: 4,
                                     city: "Denver",
                                     category_id: category_1.id)
+      job_4 = company_2.jobs.create!(title: "Testing Developer",
+                                    description: "Test Stuff",
+                                    level_of_interest: 4,
+                                    city: "Acity",
+                                    category_id: category_1.id)
 
-      sorted = [job_1, job_3, job_2]
+      sorted = [job_4, job_1, job_3, job_2]
 
       expect(Job.sort_by_location).to eq(sorted)
-    end 
+    end
   end
 end
