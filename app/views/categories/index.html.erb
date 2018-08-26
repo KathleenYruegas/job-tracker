@@ -8,7 +8,8 @@
     <p><%= category.title %></p>
     <p><%= category.jobs.count %> Jobs</p>
     <%= link_to "Edit", edit_category_path(category) %>
-    <%= link_to "Delete", category_path(category), method: :delete %>
+    <%= link_to "Delete", category_path(category), method: :delete,
+          data: {confirm: "You will lose all jobs associated with this category. Are you sure you want to delete?"} %>
   </div>
   <% end %>
 </div>

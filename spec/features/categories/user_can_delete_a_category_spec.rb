@@ -20,19 +20,11 @@ describe "User visits category index page" do
 
     visit categories_path
 
-    within("#category_#{category_3.id}") do
-      click_on("Delete")
-    end
-
-    expect(current_path).to eq(categories_path)
-    expect(page).to_not have_link(category_3.title)
-
     within("#category_#{category_1.id}") do
       click_on("Delete")
     end
 
     expect(current_path).to eq(categories_path)
-    expect(page).to have_content("#{category_1.title} can't be deleted while it contains jobs.")
-    expect(page).to have_content(category_1.title)
+    expect(page).to_not have_link(category_1.title)
   end
 end
