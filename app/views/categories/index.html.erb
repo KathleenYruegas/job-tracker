@@ -3,7 +3,15 @@
 
 <div>
   <% @categories.each do |category| %>
+<<<<<<< HEAD
     <p><%= link_to category.title, category_path(category) %></p>
+=======
+  <div id="category_<%= category.id %>">
+    <p><%= category.title %></p>
+>>>>>>> e4d34aff81ee09c75c341be4df02494f7802cd78
     <p><%= category.jobs.count %> Jobs</p>
+    <%= link_to "Edit", edit_category_path(category) %>
+
+  </div>
   <% end %>
 </div>
