@@ -1,7 +1,7 @@
 <h1 class='title'><%= @category.title %> Jobs</h1>
 
 <% @category.jobs.each do |job| %>
-<div>
+<div id='job-<%= job.id %>'>
   <label>Title</label>
     <p><%= job.title %></p>
   <label>Company</label>
@@ -10,5 +10,7 @@
     <p><%= job.city %></p>
   <label>Interest</label>
     <p><%= job.level_of_interest %></p>
+  <%= link_to "Edit", edit_job_path(job) %>
+  <%= link_to "Delete", job_path(job), method: "delete" %>
 </div>
 <% end %>

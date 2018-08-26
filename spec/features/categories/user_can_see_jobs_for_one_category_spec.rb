@@ -28,5 +28,11 @@ describe "User visits category show page" do
     expect(page).to have_content(company_2.name)
     expect(page).to have_content(job_1.city)
     expect(page).to have_content(job_2.city)
+
+    within("#job-#{job_1.id}") do
+      click_link("Edit")
+    end
+
+    expect(current_path).to eq(edit_job_path(job_1))
   end
 end
