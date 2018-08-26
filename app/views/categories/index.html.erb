@@ -3,7 +3,7 @@
 
 <div>
   <% @categories.each do |category| %>
-    <p><%= category.title %></p>
+    <p><%= link_to category.title, category_path(category) %></p>
     <p><%= category.jobs.count %> Jobs</p>
   <% end %>
 </div>
