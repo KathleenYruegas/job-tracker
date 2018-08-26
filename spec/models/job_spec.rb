@@ -47,28 +47,30 @@ describe Job do
   end
 
   describe "Class Methods" do
-    category_1 = Category.create!(title: "Testing")
-    category_2 = Category.create!(title: "Dev")
-    company_1 = Company.create!(name: "Google")
-    company_2 = Company.create!(name: "Turing")
-    job_1 = company_1.jobs.create!(title: "Software Developer",
-                                  description: "Do Stuff",
-                                  level_of_interest: 3,
-                                  city: "Denver",
-                                  category_id: category_1.id)
-    job_2 = company_2.jobs.create!(title: "Testing Developer",
-                                  description: "Test Stuff",
-                                  level_of_interest: 4,
-                                  city: "San Fran",
-                                  category_id: category_1.id)
-    job_3 = company_2.jobs.create!(title: "Testing Developer",
-                                  description: "Test Stuff",
-                                  level_of_interest: 4,
-                                  city: "Denver",
-                                  category_id: category_1.id)
+    it ".sort_by_location" do
+      category_1 = Category.create!(title: "Testing")
+      category_2 = Category.create!(title: "Dev")
+      company_1 = Company.create!(name: "Google")
+      company_2 = Company.create!(name: "Turing")
+      job_1 = company_1.jobs.create!(title: "Software Developer",
+                                    description: "Do Stuff",
+                                    level_of_interest: 3,
+                                    city: "Denver",
+                                    category_id: category_1.id)
+      job_2 = company_2.jobs.create!(title: "Testing Developer",
+                                    description: "Test Stuff",
+                                    level_of_interest: 4,
+                                    city: "San Fran",
+                                    category_id: category_1.id)
+      job_3 = company_2.jobs.create!(title: "Testing Developer",
+                                    description: "Test Stuff",
+                                    level_of_interest: 4,
+                                    city: "Denver",
+                                    category_id: category_1.id)
 
-    sorted = [job_1, job_3, job_2]
+      sorted = [job_1, job_3, job_2]
 
-    expect(Job.sort_by_location).to eq(sorted)
+      expect(Job.sort_by_location).to eq(sorted)
+    end 
   end
 end

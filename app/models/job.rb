@@ -3,4 +3,8 @@ class Job < ApplicationRecord
   belongs_to :company
   has_many :job_comments
   belongs_to :category
+
+  def self.sort_by_location
+    Job.order(:city)
+  end
 end
