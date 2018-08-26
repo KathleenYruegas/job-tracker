@@ -30,6 +30,14 @@ class CategoriesController < ApplicationController
   end
 
   def updated
+    @category = Category.find(params[:id])
+    if @category.save
+      flash[:success] = "Your category was updated!"
+      redirect_to category_path(@category)
+    else
+      flash[:error] = "Sorry, this category name already exists!"
+      redirect_to edit_category_path(@category)
+    end
   end
 
   private

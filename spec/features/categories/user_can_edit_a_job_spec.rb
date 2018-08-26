@@ -20,5 +20,6 @@ describe "User can edit a category" do
       expect(page).to_not have_content("Testing")
       expect(page).to have_content("Junior Dev")
     end
+    expect(page).to have_content("Your category was updated!")
   end
 end
