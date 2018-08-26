@@ -1,14 +1,16 @@
 <h1>Job Categories</h1>
 
+<%= link_to "Add New Category", new_category_path %>
 
 <div>
   <% @categories.each do |category| %>
+  <div id="category_<%= category.id %>">
     <p><%= link_to category.title, category_path(category) %></p>
-    <div id="category_<%= category.id %>">
     <p><%= category.title %></p>
     <p><%= category.jobs.count %> Jobs</p>
     <%= link_to "Edit", edit_category_path(category) %>
-
+    <%= link_to "Delete", category_path(category), method: :delete,
+          data: {confirm: "You will lose all jobs associated with this category. Are you sure you want to delete?"} %>
   </div>
   <% end %>
 </div>

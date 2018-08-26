@@ -6,6 +6,7 @@
   <%= f.text_field :title %>
 
   <%= f.collection_select(:category_id, @categories, :id, :title ) %>
+  <%= link_to "Add New Category", new_category_path %>
 
   <%= f.label :description %>
   <%= f.text_field :description %>
