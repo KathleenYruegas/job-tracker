@@ -4,6 +4,11 @@ class Job < ApplicationRecord
   has_many :job_comments
   belongs_to :category
 
+  def self.city_counter
+    cities = get_cities
+    cities.map{ |city| [city, Job.count_city(city)] }.to_h
+  end
+
   def self.get_cities
     distinct.pluck(:city)
   end
