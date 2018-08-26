@@ -16,7 +16,7 @@ describe "User visits /jobs?sort=location" do
                                   level_of_interest: 4,
                                   city: "San Fran",
                                   category_id: category_1.id)
-    job_2 = company_2.jobs.create!(title: "Testing Developer",
+    job_3 = company_2.jobs.create!(title: "Testing Developer",
                                   description: "Test Stuff",
                                   level_of_interest: 4,
                                   city: "Denver",
