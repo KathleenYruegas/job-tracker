@@ -5,7 +5,8 @@
   <ul>
     <% @city_counts.each do |city, count| %>
     <li>
-      <%= "#{city} Jobs: #{count} #{'job'.pluralize(count)}" %>
+      <%= link_to "#{city} Jobs", jobs_path(:location => city) %>
+      <%= "#{count} #{'job'.pluralize(count)}" %>
     </li>
     <% end %>
   </ul>
