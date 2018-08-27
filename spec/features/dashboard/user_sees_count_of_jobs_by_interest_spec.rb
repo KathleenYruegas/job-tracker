@@ -39,7 +39,7 @@ describe "As a user" do
         expect(page).to have_content("2 Job")
       end
 
-      expect(page).should_not have_css("#5-stars")
+      expect(page).to_not have_css("#5-stars")
     end
   end
 end
