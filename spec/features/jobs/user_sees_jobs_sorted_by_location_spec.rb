@@ -16,7 +16,12 @@ describe "User visits /jobs?sort=location" do
                                   level_of_interest: 4,
                                   city: "San Fran",
                                   category_id: category_1.id)
-    job_3 = company_2.jobs.create!(title: "Testing Developer",
+    job_3 = company_2.jobs.create!(title: "Noob",
+                                  description: "Learn",
+                                  level_of_interest: 5,
+                                  city: "Zandiego",
+                                  category_id: category_1.id)
+    job_4 = company_2.jobs.create!(title: "Testing Developer",
                                   description: "Test Stuff",
                                   level_of_interest: 4,
                                   city: "Denver",
@@ -31,8 +36,13 @@ describe "User visits /jobs?sort=location" do
     within("#2") do
       expect(page).to have_content("Denver")
     end
+
     within("#3") do
       expect(page).to have_content("San Fran")
+    end
+
+    within("#4") do
+      expect(page).to have_content("Zandiego")
     end
   end
 end
