@@ -8,22 +8,22 @@ describe 'user can navigate site with nav bar' do
       within(".navbar") do
         click_link "Categories"
       end
-      expect(current_path).to eq ("/categories")
+      expect(current_path).to eq (categories_path)
 
       within(".navbar") do
         click_link "Companies"
       end
-      expect(current_path).to eq ("/companies")
+      expect(current_path).to eq (companies_path)
 
       within(".navbar") do
         click_link "Jobs"
       end
-      expect(current_path).to eq ("/jobs")
+      expect(current_path).to eq (jobs_path)
 
       within(".navbar") do
         click_link "Dashboard"
       end
-      expect(current_path).to eq ("/dashboard")
+      expect(current_path).to eq (dashboard_path)
 
     end
   end
