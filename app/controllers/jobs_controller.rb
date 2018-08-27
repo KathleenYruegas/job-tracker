@@ -40,7 +40,6 @@ class JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
-    @company = Company.find(params[:company_id])
     @categories = Category.all
     @companies = Company.all
   end

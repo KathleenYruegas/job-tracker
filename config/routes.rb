@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
   resources :companies do
-    resources :jobs
+    resources :jobs, except: [:new, :create, :edit]
     resources :company_contacts, only: [:create]
   end
 
