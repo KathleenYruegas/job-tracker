@@ -5,7 +5,7 @@
   <ul>
     <% @city_counts.each do |city, count| %>
     <li>
-      <%= "#{city} Jobs: #{count} jobs" %>
+      <%= "#{city} Jobs: #{count} #{'job'.pluralize(count)}" %>
     </li>
     <% end %>
   </ul>
