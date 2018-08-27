@@ -15,5 +15,9 @@ class Job < ApplicationRecord
 
   def self.count_city(city)
     where(city: city).count
+  end 
+
+  def self.sort_by_location
+    order(:city)
   end
 end
