@@ -14,7 +14,7 @@ describe Job do
       end
 
       it "is invalid without a city" do
-        job = Job.new(title: "Developer", description: "Wahoo", level_of_interest: 80)
+        job = Job.new(title: "Developer", description: "Wahoo", level_of_interest: 5)
         expect(job).to be_invalid
       end
     end
@@ -23,7 +23,7 @@ describe Job do
       it "is valid with a title, level of interest, category, and company" do
         company = Company.new(name: "Turing")
         category = Category.new(title: "Feature Testing")
-        job = Job.new(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
+        job = Job.new(title: "Developer", level_of_interest: 4, city: "Denver", company: company, category: category)
         expect(job).to be_valid
       end
     end
@@ -31,17 +31,17 @@ describe Job do
 
   describe "relationships" do
     it "belongs to a company" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 5, description: "Wahooo")
       expect(job).to respond_to(:company)
     end
 
     it "belongs to a category" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 5, description: "Wahooo")
       expect(job).to respond_to(:category)
     end
 
     it "has many job_comments" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 5, description: "Wahooo")
       expect(job).to respond_to(:job_comments)
     end
   end

@@ -5,7 +5,7 @@ describe "User sees a specific job" do
     company = Company.create!(name: "ESPN")
     category = Category.create!(title: "Dev")
     job = company.jobs.create!(title: "Developer",
-                              level_of_interest: 70,
+                              level_of_interest: 2,
                               city: "Denver",
                               category_id: category.id)
 
@@ -13,6 +13,6 @@ describe "User sees a specific job" do
 
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
-    expect(page).to have_content("70")
+    expect(page).to have_content("2")
   end
 end
