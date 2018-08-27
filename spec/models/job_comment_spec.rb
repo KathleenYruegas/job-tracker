@@ -19,7 +19,7 @@ describe JobComment, type: :model do
       end
     end
     it "belongs to a company" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 4, description: "Wahooo")
       expect(job).to respond_to(:company)
     end
   end

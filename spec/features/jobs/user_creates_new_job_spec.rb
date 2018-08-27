@@ -12,7 +12,7 @@ describe "User creates a new job" do
     find('#job_category_id').find(:option, category_2.title).select_option
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
-    fill_in "job[level_of_interest]", with: 80
+    fill_in "job[level_of_interest]", with: 3
     fill_in "job[city]", with: "Denver"
 
     click_button "Create"
@@ -20,7 +20,7 @@ describe "User creates a new job" do
     expect(current_path).to eq(job_path(Job.last.id))
     expect(page).to have_content("CNN")
     expect(page).to have_content("Developer")
-    expect(page).to have_content("80")
+    expect(page).to have_content("3")
     expect(page).to have_content("Denver")
   end
 end

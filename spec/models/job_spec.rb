@@ -14,7 +14,7 @@ describe Job do
       end
 
       it "is invalid without a city" do
-        job = Job.new(title: "Developer", description: "Wahoo", level_of_interest: 80)
+        job = Job.new(title: "Developer", description: "Wahoo", level_of_interest: 5)
         expect(job).to be_invalid
       end
     end
@@ -23,7 +23,7 @@ describe Job do
       it "is valid with a title, level of interest, category, and company" do
         company = Company.new(name: "Turing")
         category = Category.new(title: "Feature Testing")
-        job = Job.new(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
+        job = Job.new(title: "Developer", level_of_interest: 4, city: "Denver", company: company, category: category)
         expect(job).to be_valid
       end
     end
@@ -31,17 +31,17 @@ describe Job do
 
   describe "relationships" do
     it "belongs to a company" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 5, description: "Wahooo")
       expect(job).to respond_to(:company)
     end
 
     it "belongs to a category" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 5, description: "Wahooo")
       expect(job).to respond_to(:category)
     end
 
     it "has many job_comments" do
-      job = Job.new(title: "Software", level_of_interest: 70, description: "Wahooo")
+      job = Job.new(title: "Software", level_of_interest: 5, description: "Wahooo")
       expect(job).to respond_to(:job_comments)
     end
   end
@@ -76,27 +76,41 @@ describe Job do
       sorted = [job_4, job_1, job_3, job_2]
 
       expect(Job.sort_by_location).to eq(sorted)
-    end 
-    
-    it "can return an array of unique cities" do
+    end
+
+    it ".get_cities" do
       company = Company.new(name: "Turing")
       category = Category.new(title: "Feature Testing")
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Boulder", company: company, category: category)
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Boulder", company: company, category: category)
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Chicago", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Boulder", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Boulder", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Chicago", company: company, category: category)
       expect(Job.get_cities).to eq(["Chicago", "Boulder", "Denver"])
     end
-    
-    it "can return a count of each city" do
+
+    it '.count_city' do
       company = Company.new(name: "Turing")
       category = Category.new(title: "Feature Testing")
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Denver", company: company, category: category)
-      job = Job.create(title: "Developer", level_of_interest: 40, city: "Chicago", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Chicago", company: company, category: category)
       expect(Job.count_city("Denver")).to eq 2
       expect(Job.count_city("Chicago")).to eq 1
+    end
+
+    it '.interest_count' do
+      company = Company.new(name: "Turing")
+      category = Category.new(title: "Feature Testing")
+      job = Job.create(title: "Developer", level_of_interest: 3, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Denver", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 3, city: "Boulder", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 4, city: "Boulder", company: company, category: category)
+      job = Job.create(title: "Developer", level_of_interest: 5, city: "Chicago", company: company, category: category)
+
+      isit= Job.interest_count
+
+      expect(Job.interest_count).to eq({5 => 1, 4 => 2, 3 => 2})
     end
   end
 end

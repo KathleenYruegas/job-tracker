@@ -1,5 +1,19 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1>Dashboard</h1>
+
+<div id='job_count_by_interest'>
+  <h1>Jobs by Interest</h1>
+
+  <% @interests_count.each do |interest, count| %>
+    <ul id="<%= interest %>-stars">
+      <li>
+        <%= interest %>
+        <%= "#{count} #{'Job'.pluralize(count)}" %>
+      </li>
+    </ul>
+  <% end %>
+
+
+</div>
 
 <div class="job_count">
   <ul>

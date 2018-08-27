@@ -15,9 +15,13 @@ class Job < ApplicationRecord
 
   def self.count_city(city)
     where(city: city).count
-  end 
+  end
 
   def self.sort_by_location
     order(:city)
+  end
+
+  def self.interest_count
+    group(:level_of_interest).order(level_of_interest: :desc).count
   end
 end
