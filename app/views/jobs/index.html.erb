@@ -1,7 +1,7 @@
 <strong><%= @title %></strong> Jobs
 
-<% @jobs.each do |job| %>
-  <ul class="job_<%=job.id%>">
+<% @jobs.each.with_index do |job, index| %>
+  <ul id="<%= index + 1 %>" class="job_<%=job.id%>">
     <li><%= job.title %></li>
     <li><%= job.company.name %></li>
     <li><%= job.city %></li>
