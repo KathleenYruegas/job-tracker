@@ -16,7 +16,7 @@ describe 'User can add a job comment' do
         end
         click_button "Save"
 
-        expect(current_path).to eq("/jobs/#{job.id}")
+        expect(current_path).to eq(job_path(job))
         expect(page).to have_content("My experience at Turing has
                                                been exceptionally pleasant, I
                                                have learned so much!")
