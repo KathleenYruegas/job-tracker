@@ -1,7 +1,7 @@
 class JobCommentsController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
-    @job_comment = @job.job_comments.create!(job_comment_params)
+    @job_comment = @job.job_comments.create(job_comment_params)
     if @job_comment.save
       flash[:success] = "Comment posted!"
       redirect_to job_path(params[:job_id])
