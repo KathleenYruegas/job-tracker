@@ -11,8 +11,8 @@ describe "User edits a job" do
                                city: "Denver",
                                level_of_interest: "4",
                                category_id: category.id)
-                               
-    visit edit_company_job_path(company, job)
+
+    visit edit_job_path(job)
 
     find('#job_company_id').find(:option, company_2.name).select_option
     find('#job_category_id').find(:option, category_2.title).select_option

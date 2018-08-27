@@ -3,14 +3,13 @@
 
 <div class="new_contact_form">
   <h2>Add New Contact</h2>
-    <%= form_for @company_contact do |f| %>
+    <%= form_for [@company, @company_contact] do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <%= f.label :position %>
     <%= f.text_field :position %>
     <%= f.label :email %>
     <%= f.text_field :email %>
-    <%= f.hidden_field :company_id, :value => @company.id %>
     <%= f.submit "Save" %>
   <% end %>
 </div>

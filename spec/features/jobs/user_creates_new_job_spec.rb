@@ -6,7 +6,7 @@ describe "User creates a new job" do
     company_2 = Company.create!(name: "CNN")
     category = Category.create!(title: "Software Development")
     category_2 = Category.create!(title: "Database Manager")
-    visit new_company_job_path(company)
+    visit new_job_path
 
     find('#job_company_id').find(:option, company_2.name).select_option
     find('#job_category_id').find(:option, category_2.title).select_option
