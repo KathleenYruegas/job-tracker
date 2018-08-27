@@ -2,7 +2,7 @@ class CompanyContactsController < ApplicationController
 
   def create
     @company = Company.find(params[:company_id])
-    @company_contact = @company.company_contacts.create!(company_contact_params)
+    @company_contact = @company.company_contacts.create(company_contact_params)
     if @company_contact.save
       flash[:success] = "#{@company_contact.name} added to contacts!"
       redirect_to company_path(@company_contact.company)
