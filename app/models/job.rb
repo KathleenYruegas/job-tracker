@@ -1,8 +1,8 @@
 class Job < ApplicationRecord
   validates :title, :level_of_interest, :city, presence: true
   belongs_to :company
-  has_many :job_comments
   belongs_to :category
+  has_many :job_comments
 
   def self.city_counter
     cities = get_cities
