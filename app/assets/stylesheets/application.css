@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 body {
   background-color: #faf3dd;
 }
@@ -29,3 +30,7 @@ body {
    background-color: #faf3dd;
 
  }
+
+.collapse {
+  background: #C8D5B9;
+}
