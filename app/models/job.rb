@@ -24,4 +24,8 @@ class Job < ApplicationRecord
   def self.interest_count
     group(:level_of_interest).order(level_of_interest: :desc).count
   end
+
+  def self.sort_by_interest
+    order("level_of_interest DESC", :title)
+  end
 end
