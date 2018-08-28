@@ -33,3 +33,7 @@ body {
 .collapse {
   background: #C8D5B9;
 }
+
+#dirty-list-fix {
+  list-style: none;
+}
