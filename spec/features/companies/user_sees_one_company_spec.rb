@@ -11,5 +11,8 @@ describe "User sees one company" do
     expect(current_path).to eq("/companies/#{company.id}/jobs")
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
+
+    click_link("Edit")
+    expect(current_path).to eq(edit_company_path(company))
   end
 end
