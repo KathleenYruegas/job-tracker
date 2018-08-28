@@ -20,6 +20,7 @@ describe "User sees all jobs" do
     expect(page).to have_content("Denver")
     expect(page).to have_content("New York City")
     expect(page).to have_content("Salt Lake City")
+    expect(page).to have_link("Add New Job")
 
   end
   scenario "a user sees all the jobs for a specific company" do
