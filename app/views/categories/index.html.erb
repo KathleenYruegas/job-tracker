@@ -1,15 +1,18 @@
 <h1>Job Categories</h1>
 
-<%= link_to "Add New Category", new_category_path %>
+<%= link_to "Add New Category", new_category_path, class: 'btn btn-info' %>
 
-<div>
-  <% @categories.each do |category| %>
-  <div id="category_<%= category.id %>">
-    <p><%= link_to category.title, category_path(category) %></p>
-    <p><%= category.jobs.count %> Jobs</p>
-    <%= link_to "Edit", edit_category_path(category) %>
-    <%= link_to "Delete", category_path(category), method: :delete,
-          data: {confirm: "You will lose all jobs associated with this category. Are you sure you want to delete?"} %>
-  </div>
-  <% end %>
-</div>
+<table class="table">
+  <tbody>
+    <% @categories.each do |category| %>
+    <tr id="category_<%= category.id %>">
+      <th scope="row"><%= link_to category.title, category_path(category) %></th>
+      <td><%= "#{category.jobs.count}  #{'Job'.pluralize(category.jobs.count)}"%> </td>
+      <td><%= link_to "Edit", edit_category_path(category) %></td>
+      <td><%= link_to "Delete", category_path(category), method: :delete,
+            data: {confirm: "You will lose all jobs associated with this category. Are you sure you want to delete?"} %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
