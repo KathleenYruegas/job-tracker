@@ -27,7 +27,10 @@ describe "User visits /jobs?sort=location" do
                                   city: "Denver",
                                   category_id: category_1.id)
 
-    visit '/jobs?sort=location'
+    visit jobs_path
+    click_link('city-sort')
+
+    expect(current_path).to eq(jobs_path)
 
     within("#1") do
       expect(page).to have_content("Denver")

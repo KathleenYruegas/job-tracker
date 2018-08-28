@@ -4,13 +4,15 @@
   <ul>
     <li>Title</li>
     <li>Company</li>
-    <li>City</li>
+    <li>
+      <%= link_to "City", jobs_path(sort: "location"), id: "city-sort" %>
+    </li>
     <li>
       <%= link_to "Interests", jobs_path(sort: "interest"), id: "interest-sort" %>
     </li>
   </ul>
 </div>
-    
+
 
 <% @jobs.each.with_index do |job, index| %>
   <ul id="<%= index + 1 %>" class="job_<%=job.id%>">
