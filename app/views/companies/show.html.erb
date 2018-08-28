@@ -1,5 +1,8 @@
 <strong><%= @company.name %></strong>
-<!-- Wrap above in a div and add an edit and delete link -->
+
+<%= link_to "Edit", edit_company_path(@company) %>
+<%= link_to "Delete", company_path(@company), method: "delete",
+data: {confirm: "You will lose all contacts and jobs associated with this company. Are you sure you want to delete?"} %>
 
 <div class="new_contact_form">
   <h2>Add New Contact</h2>

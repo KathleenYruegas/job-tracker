@@ -14,7 +14,7 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
 <div class="comment_box">
   <%= form_for [@job, @job_comment] do |f| %>
-    <%= f.label :content %>
+    <%= f.label "Notes: " %>
     <%= f.text_field :content %>
     <%= f.submit "Save" %>
   <% end %>
