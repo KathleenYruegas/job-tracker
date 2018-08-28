@@ -14,12 +14,18 @@
  *= require_self
  */
 
+body {
+  background-color: #8fc0a9;
+}
 
  .btn {
    margin: 20px 10px;
-   background-color: #8fc0a9;
+   color: gray;
+   background-color: #68b0ab;
+
  }
 
  .btn hover {
-   background-color: #68b0ab;
+   background-color: #faf3dd;
+
  }
