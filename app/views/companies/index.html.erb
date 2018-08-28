@@ -1,13 +1,15 @@
 <h3>All Companies</h3>
 
-<%= link_to "Create New Company", new_company_path %>
+<%= link_to "Create New Company", new_company_path, class: "btn btn-info" %>
 
-<ul>
-  <% @companies.each do |company| %>
-  <li class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %>:
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
-  </li>
-  <% end %>
-</ul>
+<table class="table">
+  <tbody>
+    <% @companies.each do |company| %>
+    <tr class=company_<%= company.id %>>
+      <th scope="row"><%= link_to company.name, company_path(company) %></th>
+      <td><%= link_to "Edit", edit_company_path(company) %></td>
+      <td><%= link_to "Delete", company_path(company), method: "delete" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
