@@ -16,9 +16,9 @@ describe 'User can see top 3 companies by interest' do
 
       visit dashboard_path
 
-      expect(page).to have_content("4 Stars")
-      expect(page).to have_content("3 Stars")
-      expect(page).to have_content("1 Star")
+      expect(page).to have_content("4.0 Stars")
+      expect(page).to have_content("3.0 Stars")
+      expect(page).to have_content("1.0 Star")
     end
   end
 end

@@ -1,5 +1,7 @@
 <h1>Dashboard</h1>
 
+
+
 <div id='job_count_by_interest'>
   <h1>Jobs by Interest</h1>
 
@@ -12,7 +14,17 @@
     </ul>
   <% end %>
 
+</div>
 
+<div id='top_companies_by_interest'>
+  <h1>Top Companies by Interest</h1>
+
+  <% @top_companies_by_interest.each do |company, interest| %>
+    <ul id="<%= company %>-by_interest">
+      <%= "#{company}" %>
+      <%= "#{interest} #{'Star'.pluralize(interest)}" %>
+    </ul>
+  <% end %>
 </div>
 
 <div class="job_count">
