@@ -3,8 +3,11 @@ class JobsController < ApplicationController
     if params[:location]
       @jobs = Job.where(city: params[:location])
       @title = "#{params[:location]}"
-     elsif params[:sort] == "location"
+    elsif params[:sort] == "location"
       @jobs = Job.sort_by_location
+      @title = "All"
+    elsif params[:sort] == "interest"
+      @jobs = Job.sort_by_interest
       @title = "All"
     elsif params[:company_id]
       @company = Company.find(params[:company_id])
