@@ -63,13 +63,5 @@ describe "User visits category show page" do
     visit category_path(category)
     click_link(company_1.name)
     expect(current_path).to eq(company_path(company_1))
-
-    # visit category_path(category)
-    # click_link(job_2.city)
-    # expect(current_path).to eq(???
-    #
-    # visit category_path(category)
-    # click_link("Interest")
-    # expect(current_path).to eq(???
   end
 end
