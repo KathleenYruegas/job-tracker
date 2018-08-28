@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.collapse {
+  background: #C8D5B9;
+}
