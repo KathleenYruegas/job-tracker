@@ -1,29 +1,28 @@
-<strong><%= @title %></strong> Jobs
+<h1><%= @title %> Jobs</h1>
 
-<%= link_to "Add New Job", new_job_path %>
+<%= link_to "Add New Job", new_job_path, class: "btn btn-info" %>
 
-<div class='column-titles'>
-  <ul>
-    <li>Title</li>
-    <li>Company</li>
-    <li>
-      <%= link_to "City", jobs_path(sort: "location"), id: "city-sort" %>
-    </li>
-    <li>
-      <%= link_to "Interests", jobs_path(sort: "interest"), id: "interest-sort" %>
-    </li>
-  </ul>
+<div class="table-responsive">
+  <table class="table">
+      <thead class='column-titles'>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Company</th>
+        <th scope="col"><%= link_to "City", jobs_path(sort: "location"), id: "city-sort" %></th>
+        <th scope="col"><%= link_to "Interests", jobs_path(sort: "interest"), id: "interest-sort" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each.with_index do |job, index| %>
+      <tr id="<%= index + 1 %>" class="job_<%=job.id%>">
+        <th scope="row"><%= link_to job.title, job_path(job) %></th>
+        <td><%= link_to job.company.name, company_path(job.company) %></td>
+        <td><%= link_to job.city, jobs_path(location: "#{job.city}") %></td>
+        <td><%= job.level_of_interest %></td>
+        <td><%= link_to "Edit", edit_job_path(job) %></td>
+        <td><%= link_to "Delete", job_path(job), method: "delete" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-
-<% @jobs.each.with_index do |job, index| %>
-  <ul id="<%= index + 1 %>" class="job_<%=job.id%>">
-    <li><%= link_to job.title, job_path(job) %></li>
-    <li><%= link_to job.company.name, company_path(job.company) %></li>
-    <li><%= link_to job.city, jobs_path(location: "#{job.city}") %></li>
-    <li><%= job.level_of_interest %></li>
-    <%= link_to "Edit", edit_job_path(job) %>
-    <%= link_to "Delete", job_path(job), method: "delete" %>
-  </ul>
-<% end %>
-</ul>
