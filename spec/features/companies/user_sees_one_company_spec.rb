@@ -8,7 +8,7 @@ describe "User sees one company's jobs" do
 
     visit company_jobs_path(company)
 
-    expect(current_path).to eq("/companies/#{company.id}/jobs")
+    expect(current_path).to eq(company_jobs_path(company))
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
   end

@@ -29,7 +29,5 @@ describe "User edits a job" do
     expect(page).to have_content("3")
     expect(page).to have_content("Chicago")
     expect(page).to have_content("CNN")
-    # Our show page doesn't currently show the category
-    # expect(page).to have_content("Database Manager")
   end
 end

@@ -24,7 +24,6 @@ describe 'user can navigate site with nav bar' do
         click_link "Dashboard"
       end
       expect(current_path).to eq (dashboard_path)
-
     end
   end
 end
