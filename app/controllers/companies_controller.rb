@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @company_contact = @company.company_contacts.new
-    @contacts = CompanyContact.all
+    @contacts = @company.company_contacts
   end
 
   def edit
