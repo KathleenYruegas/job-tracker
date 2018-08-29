@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "#{@company.name} added!"
       redirect_to company_jobs_path(@company)
     else
+      flash[:failure] = "Invalid name, company not saved."
       render :new
     end
   end
@@ -34,6 +35,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "#{@company.name} updated!"
       redirect_to company_path(@company)
     else
+      flash[:failure] = "Invalid name, changes not saved."
       render :edit
     end
   end
