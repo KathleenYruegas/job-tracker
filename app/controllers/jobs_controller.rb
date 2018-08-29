@@ -26,11 +26,14 @@ class JobsController < ApplicationController
   end
 
   def create
+    @companies = Company.all
+    @categories = Category.all
     @job = Job.new(job_params)
     if @job.save
       flash[:success] = "You created a new job!"
       redirect_to job_path(@job)
     else
+      flash[:failure] = "Error: Job creation failed."
       render :new
     end
   end
