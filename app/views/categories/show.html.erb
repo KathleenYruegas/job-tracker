@@ -1,18 +1,28 @@
 <h1 class='title'><%= @category.title %> Jobs</h1>
 
-<p><%= link_to "Add New Job", new_job_path %>
+<%= link_to "Add New Job", new_job_path, class: 'btn btn-info' %>
 
-<% @category.jobs.each do |job| %>
-<div id='job-<%= job.id %>'>
-  <label>Title</label>
-    <p><%= link_to job.title, job_path(job) %></p>
-  <label>Company</label>
-    <p><%= link_to job.company.name, company_path(job.company_id) %></p>
-  <label>City</label>
-    <p><%= job.city %></p>
-  <label>Interest</label>
-    <p><%= job.level_of_interest %></p>
-  <%= link_to "Edit", edit_job_path(job, :company_id => job.company_id) %>
-  <%= link_to "Delete", job_path(job), method: "delete" %>
+<div class='table-responsive'>
+  <table class='table'>
+    <thead class='column-titles'>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Company</th>
+        <th scope="col">City</th>
+        <th scope="col">Interest</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @category.jobs.each do |job| %>
+      <tr id='job-<%= job.id %>'>
+        <th scope="row"><%= link_to job.title, job_path(job) %></th>
+        <td><%= link_to job.company.name, company_path(job.company) %></td>
+        <td><%= link_to job.city, jobs_path(location: "#{job.city}") %></td>
+        <td><%= job.level_of_interest %></td>
+        <td><%= link_to "Edit", edit_job_path(job, :company_id => job.company_id) %></td>
+        <td><%= link_to "Delete", job_path(job), method: "delete" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-<% end %>
