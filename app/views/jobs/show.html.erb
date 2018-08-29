@@ -1,16 +1,21 @@
-<div class='ml-2'>
+<div class='ml-4'>
   <h1><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h1>
   <br>
-  <%= link_to "See other development jobs", jobs_path %>
+  <div class="row">
+    <%= link_to "See other development jobs", jobs_path %>
+  </div>
   <br>
-
-  <b>Location:</b> <%= @job.city %>
+  <div class="row">
+    <b>Location: </b> &nbsp;  <%= @job.city%>
+  </div>
   <br>
-
-  <b>Interest:</b> <%= @job.level_of_interest %>
+  <div class="row">
+    <b>Interest: </b> &nbsp; <%= @job.level_of_interest %>
+  </div>
   <br>
-
-  <b>Description:</b> <%= @job.description %>
+  <div class="row">
+    <b>Description: </b> &nbsp; <%= @job.description %>
+  </div>
   <br>
 
 </div>
