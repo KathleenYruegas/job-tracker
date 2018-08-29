@@ -1,9 +1,14 @@
-<h1><%= @company.name %></h1>
+<h1 class='ml-3'><%= @company.name %></h1>
 
+<div class='ml-2'>
 <%= link_to "Edit", edit_company_path(@company), class: "btn btn-info" %>
 <%= link_to "Delete", company_path(@company), method: "delete", class: "btn btn-info",
 data: {confirm: "You will lose all contacts and jobs associated with this company. Are you sure you want to delete?"} %>
+</div>
 
+<div class='ml-4'>
+  <%= link_to "See all #{@company.name} jobs", company_jobs_path(@company) %>
+</div>
 <div class="new_contact_form section">
   <h4>Add New Contact</h4>
     <%= form_for [@company, @company_contact] do |f| %>

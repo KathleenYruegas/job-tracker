@@ -1,18 +1,25 @@
-Title: <%= @job.title %>
-<br>
+<div class='ml-2'>
+  <h1><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h1>
+  <br>
+  <%= link_to "See other development jobs", jobs_path %>
+  <br>
 
-Description: <%= @job.description %>
-<br>
+  <b>Location:</b> <%= @job.city %>
+  <br>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
+  <b>Interest:</b> <%= @job.level_of_interest %>
+  <br>
 
-City: <%= @job.city %>
-<br>
+  <b>Description:</b> <%= @job.description %>
+  <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+</div>
 
-<div class="comment_box">
+
+
+<!-- Company: <%= link_to @job.company.name, company_path(@job.company) %> -->
+
+<div class="comment_box ml-2">
   <%= form_for [@job, @job_comment] do |f| %>
     <%= f.label "Notes: " %>
     <%= f.text_field :content %>
