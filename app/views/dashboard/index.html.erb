@@ -5,8 +5,8 @@
       <div id='job_count_by_interest'>
         <h3 class='card-title'>Jobs by Interest</h3>
         <% @interests_count.each do |interest, count| %>
-          <ul id="<%= interest %>-stars">
-              <%= interest %>
+          <ul id="<%= interest %>-stars" class="stars">
+              <li><%= interest %> <%= 'star'.pluralize(interest) %></li>
               <%= "#{count} #{'Job'.pluralize(count)}" %>
           </ul>
           <% end %>

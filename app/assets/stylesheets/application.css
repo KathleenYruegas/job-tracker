@@ -39,6 +39,14 @@ body {
   margin: 15px 10px;
 }
 
+.stars {
+  list-style: none;
+}
+
+.stars li:before {
+  content: "\2605"
+}
+
 #dirty-list-fix {
   list-style: none;
 }
