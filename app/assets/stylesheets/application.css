@@ -34,6 +34,11 @@ body {
   background: #C8D5B9;
 }
 
+.section {
+  padding: 10px;
+  margin: 15px 10px;
+}
+
 #dirty-list-fix {
   list-style: none;
 }
