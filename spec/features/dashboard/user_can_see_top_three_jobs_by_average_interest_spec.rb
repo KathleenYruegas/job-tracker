@@ -16,9 +16,9 @@ describe 'User can see top 3 companies by interest' do
       values = Company.top_companies_by_interest
 
       visit dashboard_path
-      expect(page).to have_content("Google #{values["Google"]} Stars")
-      expect(page).to have_content("Microsoft #{values["Microsoft"]} Stars")
-      expect(page).to have_content("Twitter #{values["Twitter"]} Star")
+      expect(page).to have_content("Google: #{values["Google"]} Stars")
+      expect(page).to have_content("Microsoft: #{values["Microsoft"]} Stars")
+      expect(page).to have_content("Twitter: #{values["Twitter"]} Star")
     end
   end
 end

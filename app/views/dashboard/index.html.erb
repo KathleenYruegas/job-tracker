@@ -5,10 +5,10 @@
       <div id='job_count_by_interest'>
         <h3 class='card-title'>Jobs by Interest</h3>
         <% @interests_count.each do |interest, count| %>
-          <ul id="<%= interest %>-stars" class="stars">
-              <li><%= interest %> <%= 'star'.pluralize(interest) %></li>
-              <%= "#{count} #{'Job'.pluralize(count)}" %>
-          </ul>
+          <p id="<%= interest %>-stars" class="stars">
+              <%= interest %> <%= 'star'.pluralize(interest) %> -
+              <%= count %> <%= 'Job'.pluralize(count) %>
+          </p>
           <% end %>
         </div>
       </div>
@@ -20,10 +20,10 @@
           <h3 class='card-title'>Top Companies by Interest</h3>
 
           <% @top_companies_by_interest.each do |company, interest| %>
-          <ul id="<%= company %>-by_interest">
-            <%= "#{company}" %>
-            <%= "#{interest} #{'Star'.pluralize(interest)}" %>
-          </ul>
+          <p id="<%= company %>-by_interest">
+            <%= company %>:
+            <%= interest %> <%= 'Star'.pluralize(interest) %>
+          </p>
           <% end %>
         </div>
       </div>
@@ -32,14 +32,12 @@
 <div class="card w-25 mt-4 mx-auto text-center">
   <div class="card-body">
     <div class="job_count">
-      <ul>
+      <p>
         <% @city_counts.each do |city, count| %>
-        <li id='dirty-list-fix'>
-          <%= link_to "#{city} Jobs", jobs_path(:location => city) %>
-          <%= "#{count} #{'job'.pluralize(count)}" %>
-        </li>
+          <%= link_to "#{city} Jobs", jobs_path(:location => city) %>:
+          <%= count %> <%= 'Job'.pluralize(count) %>
         <% end %>
-      </ul>
+      </p>
     </div>
   </div>
 </div>

@@ -13,9 +13,9 @@ describe 'User can see job count by location' do
       Job.create!(title: "Developer", level_of_interest: 90, city: "Chicago", company: company, category: category)
 
       visit dashboard_path
-      expect(page).to have_content("#{Job.where(city: "Boulder").count} jobs")
-      expect(page).to have_content("#{Job.where(city: "Denver").count} jobs")
-      expect(page).to have_content("#{Job.where(city: "Chicago").count} job")
+      expect(page).to have_content("#{Job.where(city: "Boulder").count} Jobs")
+      expect(page).to have_content("#{Job.where(city: "Denver").count} Jobs")
+      expect(page).to have_content("#{Job.where(city: "Chicago").count} Job")
     end
     it 'links to a page showing all jobs by city' do
       company = Company.create!(name: "ESPN")
